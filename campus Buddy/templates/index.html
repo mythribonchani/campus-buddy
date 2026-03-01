@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Campus Assistant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            width: 500px;
+            color: white;
+            text-align: center;
+        }
+
+        img {
+            width: 90px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 32px;   /* Bigger Title */
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+        }
+
+        .answer-box {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        footer {
+            margin-top: 15px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="University Logo">
+
+    <h1>Smart Campus Assistant</h1>
+
+    <!-- Added Technical Subtitle -->
+    <p class="subtitle">AI-powered Intelligent Query Resolution System</p>
+
+    <form method="POST">
+        <input type="text" name="question" placeholder="Ask your question here..." required>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if answer %}
+    <div class="answer-box">
+        <strong>Answer:</strong>
+        <p>{{ answer }}</p>
+        <p><strong>Category:</strong> {{ category }}</p>
+    </div>
+    {% endif %}
+
+    <footer>
+        Developed for Hackathon Presentation
+    </footer>
+</div>
+
+</body>
+</html>
